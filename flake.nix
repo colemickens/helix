@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     rust-overlay.url = "github:oxalica/rust-overlay";
     nixCargoIntegration = {
-      url = "github:yusdacra/nix-cargo-integration";
+      url = "github:yusdacra/nix-cargo-integration/5c4e36760a232feb572fb5f9b46e8d262dbec42e";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.rustOverlay.follows = "rust-overlay";
     };
@@ -14,7 +14,6 @@
   outputs = inputs@{ self, nixCargoIntegration, ... }:
     nixCargoIntegration.lib.makeOutputs {
       root = ./.;
-      buildPlatform = "crate2nix";
       renameOutputs = { "helix-term" = "helix"; };
       # Set default app to hx (binary is from helix-term release build)
       # Set default package to helix-term release build
